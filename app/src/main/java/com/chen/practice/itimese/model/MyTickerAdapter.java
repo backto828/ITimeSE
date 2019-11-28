@@ -38,12 +38,10 @@ public class MyTickerAdapter extends ArrayAdapter<MyTicker> {
         long deltaDay = (now.getTime().getTime() - timeDate.getTime().getTime()) / (1000 * 3600 * 24);
 
         String deltaString;
-        if (deltaDay == 0) {
-            deltaString = "今天";
-        } else if (deltaDay > 0) {
-            deltaString = "已经" + deltaDay + "天";
+        if (deltaDay > 0) {
+            deltaString = (deltaDay * -1) + "天";
         } else {
-            deltaString = "还有" + Math.abs(deltaDay) + "天";
+            deltaString = Math.abs(deltaDay) + "天";
         }
 
         // 倒计时标题

@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
     public static final int DELETE_MODE = 3;
 
     // 数组及适配器
-    private ArrayList<MyTicker> myTickers;
+    private ArrayList<MyTicker> myTickers = new ArrayList<>();
     private MyTickerAdapter myTickerAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         // 定义数据
-//        initData();
+        initData();
         // ListView
         ListView listViewMyTimer = root.findViewById(R.id.list_view_my_timer);
         listViewMyTimer.setAdapter(myTickerAdapter);

@@ -7,7 +7,7 @@
     tools:context=".NewAndEditTickerActivity">
 
     <ImageView
-        android:id="@+id/edit_time_image"
+        android:id="@+id/image_view_edit_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/edit_time_tool_bar"
+            android:id="@+id/tool_bar_edit_time"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#00FFFFFF"
@@ -64,14 +64,14 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/title_text_iew"
+                android:id="@+id/text_view_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="标题"
                 android:textColor="#FFFFFF" />
 
             <EditText
-                android:id="@+id/title_edit_text"
+                android:id="@+id/edit_text_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -91,7 +91,7 @@
                 android:textColorHint="#FFFFFF" />
 
             <EditText
-                android:id="@+id/remark_edit_text"
+                android:id="@+id/edit_text_remark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -149,7 +149,7 @@
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/date_detail_text"
+                    android:id="@+id/text_view_date_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -190,7 +190,7 @@
                     android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/repeat_detail_text"
+                    android:id="@+id/text_view_repeat_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="无" />

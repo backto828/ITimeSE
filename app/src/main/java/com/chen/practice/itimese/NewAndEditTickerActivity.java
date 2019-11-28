@@ -35,6 +35,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static com.chen.practice.itimese.MainActivity.setStatusBarTransparent;
 import static com.chen.practice.itimese.ui.home.HomeFragment.ADD_MODE;
 import static com.chen.practice.itimese.ui.home.HomeFragment.MODIFY_MODE;
 
@@ -71,12 +72,12 @@ public class NewAndEditTickerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_and_edit_ticker);
 
         // 状态栏透明
-//        setStatusBarTransparent(this, R.id.edit_time_app_bar_layout);
+        setStatusBarTransparent(this, R.id.edit_time_app_bar_layout);
 
-        editTitle = this.findViewById(R.id.title_edit_text);
-        editRemark = this.findViewById(R.id.remark_edit_text);
-        dateTextView = this.findViewById(R.id.date_detail_text);
-        repeatDayTextView = this.findViewById(R.id.repeat_detail_text);
+        editTitle = this.findViewById(R.id.edit_text_title);
+        editRemark = this.findViewById(R.id.edit_text_remark);
+        dateTextView = this.findViewById(R.id.text_view_date_detail);
+        repeatDayTextView = this.findViewById(R.id.text_view_repeat_detail);
 
         Intent intent = getIntent();
         mode = intent.getIntExtra("mode", -1);
@@ -101,22 +102,22 @@ public class NewAndEditTickerActivity extends AppCompatActivity {
         int color = intent.getIntExtra("color", 0xFF000000);
         if (mode == ADD_MODE) {
             // 设置颜色
-            ((ImageView) this.findViewById(R.id.edit_time_image)).setColorFilter(color);
+            ((ImageView) this.findViewById(R.id.image_view_edit_time)).setColorFilter(color);
         } else {
             // 图片
             if (!myTicker.imageUriPath.isEmpty()) {
                 Bitmap bitmap = Tools.getBitmapFromUriString(this.getContentResolver(), myTicker.imageUriPath);
                 if (bitmap != null) {
-                    ((ImageView) this.findViewById(R.id.edit_time_image)).setImageBitmap(bitmap);
+                    ((ImageView) this.findViewById(R.id.image_view_edit_time)).setImageBitmap(bitmap);
                 } else {
-                    ((ImageView) this.findViewById(R.id.edit_time_image)).setColorFilter(color);
+                    ((ImageView) this.findViewById(R.id.image_view_edit_time)).setColorFilter(color);
                 }
             } else {
-                ((ImageView) this.findViewById(R.id.edit_time_image)).setColorFilter(color);
+                ((ImageView) this.findViewById(R.id.image_view_edit_time)).setColorFilter(color);
             }
         }
 
-        final Toolbar toolbar = this.findViewById(R.id.edit_time_tool_bar);
+        final Toolbar toolbar = this.findViewById(R.id.tool_bar_edit_time);
         setSupportActionBar(toolbar);
         // 工具栏内容设置
         ActionBar actionBar = getSupportActionBar();
@@ -265,13 +266,12 @@ public class NewAndEditTickerActivity extends AppCompatActivity {
         dateTextView.setText(myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日");
     }
 
-    // Waiting For Refactoring
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // 设置菜单栏按钮图片
-//        getMenuInflater().inflate(R.menu.activity_edit_time_confirm, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // 设置菜单栏按钮图片
+        getMenuInflater().inflate(R.menu.activity_edit_time_confirm, menu);
+        return true;
+    }
 }
 
 
