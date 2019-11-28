@@ -12,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.chen.practice.itimese.R;
+import com.chen.practice.itimese.model.Date;
 import com.chen.practice.itimese.model.MyTicker;
 import com.chen.practice.itimese.model.MyTickerAdapter;
+import com.chen.practice.itimese.others.MyTickerManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -100,9 +102,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void initData() {
-        // 加载myTickers 等待重构
-        // myTickers = MyTimeManager.load(this.getContext());
-        // myTickerAdapter = new MyTickerAdapter(this.getContext(), R.layout.home_my_time_item_layout, myTickers);
+        myTickers = MyTickerManager.load(this.getContext());
+        myTickerAdapter = new MyTickerAdapter(this.getContext(), R.layout.list_view_ticker_item, myTickers);
+
     }
 
     // Waiting For Refactoring

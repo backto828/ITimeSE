@@ -10,13 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chen.practice.itimese.R;
+import com.chen.practice.itimese.others.Tools;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MyTickerAdapter extends ArrayAdapter<MyTicker> {
-    //定义一个startActivityForResult（）方法用到的整型值
-    private final int requestCode = 1600;
 
     private int resourceId;
 
@@ -47,26 +46,30 @@ public class MyTickerAdapter extends ArrayAdapter<MyTicker> {
             deltaString = "还有" + Math.abs(deltaDay) + "天";
         }
 
-        // 等待重构
-
-//        ((TextView) view.findViewById(R.id.home_my_time_title_text_iew)).setText(myTicker.title);
-//        if (myTicker.remark.isEmpty()) {
-//            ((TextView) view.findViewById(R.id.home_my_time_remark_text_view)).setHeight(0);
-//        } else {
-//            ((TextView) view.findViewById(R.id.home_my_time_remark_text_view)).setText(myTicker.remark);
-//        }
-//        ((TextView) view.findViewById(R.id.home_my_time_countdown_text_view)).setText(deltaString);
-//
-//        if (!myTicker.imageUriPath.isEmpty()) {
-//            Bitmap bitmap = Tool.getBitmapFromUriString(view.getContext().getContentResolver(), myTicker.imageUriPath);
-//            if (bitmap != null) {
-//                ((ImageView) view.findViewById(R.id.home_my_time_image_view)).setImageBitmap(bitmap);
-//            } else {
-//                ((ImageView) view.findViewById(R.id.home_my_time_image_view)).setColorFilter(0xFF000000);
-//            }
-//        } else {
-//            ((ImageView) view.findViewById(R.id.home_my_time_image_view)).setColorFilter(0xFF000000);
-//        }
+        // 倒计时标题
+        ((TextView) view.findViewById(R.id.tv_ticker_item_title)).setText(myTicker.title);
+        // 倒计时备注
+        if (myTicker.remark.isEmpty()) {
+            ((TextView) view.findViewById(R.id.tv_ticker_item_remark)).setHeight(0);
+        } else {
+            ((TextView) view.findViewById(R.id.tv_ticker_item_remark)).setText(myTicker.remark);
+        }
+        // 倒计时图片上显示剩余天数
+        ((TextView) view.findViewById(R.id.tv_ticker_image_days)).setText(deltaString);
+        // 倒计时日期
+        ((TextView) view.findViewById(R.id.tv_ticker_item_date))
+                .setText(myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日");
+        // 倒计时图片设置
+        if (!myTicker.imageUriPath.isEmpty()) {
+            Bitmap bitmap = Tools.getBitmapFromUriString(view.getContext().getContentResolver(), myTicker.imageUriPath);
+            if (bitmap != null) {
+                ((ImageView) view.findViewById(R.id.iv_ticker_item_image)).setImageBitmap(bitmap);
+            } else {
+                ((ImageView) view.findViewById(R.id.iv_ticker_item_image)).setColorFilter(0xFF000000);
+            }
+        } else {
+            ((ImageView) view.findViewById(R.id.iv_ticker_item_image)).setColorFilter(0xFF000000);
+        }
 
         return view;
     }
