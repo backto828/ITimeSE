@@ -1,6 +1,7 @@
 package com.chen.practice.itimese.ui.home;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,13 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
 
+    // Waiting For Refactoring
+    private int color = 0;
+    private boolean colorChanged = false;
+    private boolean setAble = false;
+
     // 定义一些整型常量
-    private static final int REQUEST_CODE = 1500;
+    private static final int REQUEST_CODE = 2013;
     private static final int ADD_MODE = 1;
     private static final int MODIFY_MODE = 2;
     private static final int DELETE_MODE = 3;
@@ -94,8 +100,37 @@ public class HomeFragment extends Fragment {
     }
 
     private void initData() {
-        // 加载myTime 等待重构
+        // 加载myTickers 等待重构
         // myTickers = MyTimeManager.load(this.getContext());
         // myTickerAdapter = new MyTickerAdapter(this.getContext(), R.layout.home_my_time_item_layout, myTickers);
+    }
+
+    // Waiting For Refactoring
+    @Override
+    public void onResume() {
+        super.onResume();
+        setAble = true;
+        if (colorChanged) {
+            this.colorChanged = false;
+            setFabColor();
+        }
+    }
+
+    // Waiting For Refactoring
+    public void setColor(int color) {
+        if (this.color != color) {
+            colorChanged = true;
+            this.color = color;
+
+            if (this.setAble) {
+                this.colorChanged = false;
+                setFabColor();
+            }
+        }
+    }
+
+    private void setFabColor() {
+        // Waiting For Refactoring
+//        fab.setBackgroundTintList(ColorStateList.valueOf(color));
     }
 }
