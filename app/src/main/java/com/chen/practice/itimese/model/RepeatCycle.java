@@ -1,9 +1,12 @@
 package com.chen.practice.itimese.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class RepeatCycle {
+public class RepeatCycle implements Serializable {
+
+    private static final long serialVersionUID = 7807376717790505601L;
 
     public static final String WEEK = "week";
     public static final String MONTH = "month";
@@ -13,6 +16,7 @@ public class RepeatCycle {
 
     public static final ArrayList<String> repeatDayItemLabel = new ArrayList<>(Arrays.asList(new String[]{"每周", "每月", "每年", "自定义", "无"}));
     public static final ArrayList<String> repeatDayItemType = new ArrayList<>(Arrays.asList(new String[]{WEEK, MONTH, YEAR, CUSTOMIZE, NONE}));
+
 
     public String type;
     public int customizeDay;

@@ -11,13 +11,12 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.chen.practice.itimese.NewAndEditTickerActivity;
 import com.chen.practice.itimese.R;
-import com.chen.practice.itimese.model.Date;
 import com.chen.practice.itimese.model.MyTicker;
 import com.chen.practice.itimese.model.MyTickerAdapter;
 import com.chen.practice.itimese.others.MyTickerManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -25,6 +24,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
 
+    private FloatingActionButton fab;
     // Waiting For Refactoring
     private int color = 0;
     private boolean colorChanged = false;
@@ -32,9 +32,9 @@ public class HomeFragment extends Fragment {
 
     // 定义一些整型常量
     private static final int REQUEST_CODE = 2013;
-    private static final int ADD_MODE = 1;
-    private static final int MODIFY_MODE = 2;
-    private static final int DELETE_MODE = 3;
+    public static final int ADD_MODE = 1;
+    public static final int MODIFY_MODE = 2;
+    public static final int DELETE_MODE = 3;
 
     // 数组及适配器
     private ArrayList<MyTicker> myTickers;
@@ -46,18 +46,20 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         // 定义数据
-        initData();
+//        initData();
         // ListView
         ListView listViewMyTimer = root.findViewById(R.id.list_view_my_timer);
         listViewMyTimer.setAdapter(myTickerAdapter);
 
         // 新增按钮
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "新增页面待开发", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getContext(), NewAndEditTickerActivity.class);
+                intent.putExtra("mode", ADD_MODE);
+                intent.putExtra("color", color);
+                startActivityForResult(intent, REQUEST_CODE);
             }
         });
 
@@ -107,6 +109,14 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        setAble = false;
+        // 持久化
+        MyTickerManager.save(this.getContext(), myTickers);
+    }
+
     // Waiting For Refactoring
     @Override
     public void onResume() {
@@ -132,7 +142,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void setFabColor() {
-        // Waiting For Refactoring
-//        fab.setBackgroundTintList(ColorStateList.valueOf(color));
+        fab.setBackgroundTintList(ColorStateList.valueOf(color));
     }
 }

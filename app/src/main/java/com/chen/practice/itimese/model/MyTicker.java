@@ -1,6 +1,10 @@
 package com.chen.practice.itimese.model;
 
-public class MyTicker {
+import java.io.Serializable;
+
+public class MyTicker implements Serializable {
+
+    private static final long serialVersionUID = 2470451358670939348L;
 
     public String title, remark;
     public RepeatCycle repeatCycle;

@@ -1,6 +1,10 @@
 package com.chen.practice.itimese.model;
 
-public class Date {
+import java.io.Serializable;
+
+public class Date implements Serializable {
+
+    private static final long serialVersionUID = 1115047980946822546L;
 
     public int year, month, day;
 
