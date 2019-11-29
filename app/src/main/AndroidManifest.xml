@@ -11,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".TickerDetailsActivity"></activity>
-        <activity android:name=".NewAndEditTickerActivity"></activity>
+        <activity android:name=".TickerDetailsActivity">
+
+        </activity>
+        <activity android:name=".NewAndEditTickerActivity">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -24,5 +28,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -139,10 +139,10 @@ public class TickerDetailsActivity extends AppCompatActivity {
             if (bitmap != null) {
                 ((ImageView) this.findViewById(R.id.image_view_ticker_detail)).setImageBitmap(bitmap);
             } else {
-                ((ImageView) this.findViewById(R.id.image_view_ticker_detail)).setColorFilter(0xFF000000);
+                ((ImageView) this.findViewById(R.id.image_view_ticker_detail)).setColorFilter(0x03A9F4);
             }
-        } else {
-            ((ImageView) this.findViewById(R.id.image_view_ticker_detail)).setColorFilter(0xFF000000);
+        } else {    // 0xFF000000
+            ((ImageView) this.findViewById(R.id.image_view_ticker_detail)).setColorFilter(0x03A9F4);
         }
 
         // 计算时间差（s）
@@ -188,8 +188,9 @@ public class TickerDetailsActivity extends AppCompatActivity {
             }
         }, 0, 1000);
 
-        ((TextView) this.findViewById(R.id.text_view_time_detail_countdown)).setText(myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日");
-        ((TextView) this.findViewById(R.id.text_view_time_detail_date)).setText(myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日");
+        String stringDate = myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日";
+        ((TextView) this.findViewById(R.id.text_view_time_detail_countdown)).setText(stringDate);
+        ((TextView) this.findViewById(R.id.text_view_time_detail_date)).setText(stringDate);
     }
 
     @Override

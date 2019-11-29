@@ -99,7 +99,7 @@ public class NewAndEditTickerActivity extends AppCompatActivity {
         repeatDayTextView.setText(myTicker.repeatCycle.toString());
 
         // 获取颜色
-        int color = intent.getIntExtra("color", 0xFF000000);
+        int color = intent.getIntExtra("color", 0x03A9F4);
         if (mode == ADD_MODE) {
             // 设置颜色
             ((ImageView) this.findViewById(R.id.image_view_edit_time)).setColorFilter(color);
