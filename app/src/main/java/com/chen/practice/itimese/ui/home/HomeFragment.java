@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.chen.practice.itimese.NewAndEditTickerActivity;
 import com.chen.practice.itimese.R;
+import com.chen.practice.itimese.TickerDetailsActivity;
 import com.chen.practice.itimese.model.MyTicker;
 import com.chen.practice.itimese.model.MyTickerAdapter;
 import com.chen.practice.itimese.others.MyTickerManager;
@@ -48,7 +50,7 @@ public class HomeFragment extends Fragment {
         // 定义数据
         initData();
         // ListView
-        ListView listViewMyTimer = root.findViewById(R.id.list_view_my_timer);
+        ListView listViewMyTimer = root.findViewById(R.id.list_view_my_ticker);
         listViewMyTimer.setAdapter(myTickerAdapter);
 
         // 新增按钮
@@ -59,6 +61,16 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), NewAndEditTickerActivity.class);
                 intent.putExtra("mode", ADD_MODE);
                 intent.putExtra("color", color);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        listViewMyTimer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(getContext(), TickerDetailsActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("time", myTickers.get(position));
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });

@@ -44,6 +44,9 @@ public class MyTickerAdapter extends ArrayAdapter<MyTicker> {
             deltaString = Math.abs(deltaDay) + "天";
         }
 
+        String myTickerDate;
+        myTickerDate = myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日";
+
         // 倒计时标题
         ((TextView) view.findViewById(R.id.tv_ticker_item_title)).setText(myTicker.title);
         // 倒计时备注
@@ -56,7 +59,7 @@ public class MyTickerAdapter extends ArrayAdapter<MyTicker> {
         ((TextView) view.findViewById(R.id.tv_ticker_image_days)).setText(deltaString);
         // 倒计时日期
         ((TextView) view.findViewById(R.id.tv_ticker_item_date))
-                .setText(myTicker.date.year + "年" + myTicker.date.month + "月" + myTicker.date.day + "日");
+                .setText(myTickerDate);
         // 倒计时图片设置
         if (!myTicker.imageUriPath.isEmpty()) {
             Bitmap bitmap = Tools.getBitmapFromUriString(view.getContext().getContentResolver(), myTicker.imageUriPath);
