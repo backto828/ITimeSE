@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -26,10 +26,10 @@
             android:id="@+id/tv_ticker_image_have"
             android:layout_width="64dp"
             android:layout_height="18dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
             android:text="还有"
             android:textColor="#000000"
-            android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
             android:id="@+id/tv_ticker_image_days"
             android:layout_width="64dp"
             android:layout_height="18dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="几天"
             android:textColor="#000000"
@@ -50,12 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:orientation="vertical"
-        android:padding="3dp">
+        android:padding="2dp">
 
         <TextView
             android:id="@+id/tv_ticker_item_title"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:text="test"
             android:textSize="22dp"
             android:textColor="#000000"/>
@@ -71,7 +71,7 @@
         <TextView
             android:id="@+id/tv_ticker_item_remark"
             android:layout_width="match_parent"
-            android:layout_height="14dp"
+            android:layout_height="16dp"
             android:text="test"
             android:textSize="12dp"
             android:textColor="#555555"/>

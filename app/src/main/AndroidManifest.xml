@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.chen.practice.itimese">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".TickerDetailsActivity">
-
-        </activity>
-        <activity android:name=".NewAndEditTickerActivity">
-
-        </activity>
+        <activity android:name=".FakeLoginActivity"></activity>
+        <activity android:name=".TickerDetailsActivity"></activity>
+        <activity android:name=".NewAndEditTickerActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -28,7 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

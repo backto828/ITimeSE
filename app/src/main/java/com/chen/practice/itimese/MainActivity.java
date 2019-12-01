@@ -3,6 +3,7 @@ package com.chen.practice.itimese;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Build;
@@ -98,5 +99,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    // 伪登录界面
+    public void fake_login(View view) {
+        Intent intent = new Intent(this,FakeLoginActivity.class);
+        startActivity(intent);
     }
 }
