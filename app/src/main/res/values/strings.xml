@@ -7,10 +7,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_home">计时</string>
+    <string name="menu_gallery">部件</string>
+    <string name="menu_slideshow">颜色</string>
+    <string name="menu_tools">高级</string>
+    <string name="menu_share">分享</string>
+    <string name="menu_send">关于</string>
 </resources>
