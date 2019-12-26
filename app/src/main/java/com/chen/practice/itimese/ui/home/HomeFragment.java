@@ -27,9 +27,7 @@ import static android.app.Activity.RESULT_OK;
 public class HomeFragment extends Fragment {
 
     private FloatingActionButton fab;
-    // Waiting For Refactoring
     private int color = 0;
-    private boolean colorChanged = false;
     private boolean setAble = false;
 
     // 定义一些整型常量
@@ -129,31 +127,4 @@ public class HomeFragment extends Fragment {
         MyTickerManager.save(this.getContext(), myTickers);
     }
 
-    // Waiting For Refactoring
-    @Override
-    public void onResume() {
-        super.onResume();
-        setAble = true;
-        if (colorChanged) {
-            this.colorChanged = false;
-            setFabColor();
-        }
-    }
-
-    // Waiting For Refactoring
-    public void setColor(int color) {
-        if (this.color != color) {
-            colorChanged = true;
-            this.color = color;
-
-            if (this.setAble) {
-                this.colorChanged = false;
-                setFabColor();
-            }
-        }
-    }
-
-    private void setFabColor() {
-        fab.setBackgroundTintList(ColorStateList.valueOf(color));
-    }
 }
